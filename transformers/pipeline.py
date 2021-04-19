@@ -1,4 +1,4 @@
-#Abstract class
+# Abstract class
 class Pipeline(object):
     """Common pipeline class fo all pipeline tasks."""
 
