@@ -2,7 +2,7 @@ import os
 import argparse
 from processor import Processor
 
-from transformers.load_images import LoadImages
+from transformers.load_images import LoadImage
 from transformers.resize_image import ResizeImage
 from transformers.save_image import SaveImage
 
@@ -26,7 +26,7 @@ def parse_args():
 def main(args):
     # Create pipeline steps
 
-    load_images = LoadImages(args.input)
+    load_images = LoadImage(args.input)
     resize_image = ResizeImage(width=28, height=28)
     save_image = SaveImage(args.output)
 
