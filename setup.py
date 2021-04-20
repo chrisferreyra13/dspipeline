@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="dspipeline",
-    version="0.0.1",
+    version="0.0.2",
     author="DF",
     author_email="",
     description="Data Science Ultimate Pipeline",
