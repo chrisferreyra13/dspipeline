@@ -1,5 +1,6 @@
+from fvcore.common.file_io import PathManager
+import numpy as np
 import os
-
 
 def walk_to_level(path, level=None):
     if level is None:
@@ -28,3 +29,10 @@ def list_files(path, valid_exts=None, level=None):
                 # Construct the path to the file and yield it
                 file = os.path.join(root_dir, filename)
                 yield file
+
+def list_files_in_txt(path,split,valid_exts=None, level=None):
+    with PathManager.open(os.path.join(path, split + ".txt")) as f:
+            fileids = np.loadtxt(f, dtype=np.str)
+
+    for fileid in fileids:
+        yield fileid

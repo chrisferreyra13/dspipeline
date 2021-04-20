@@ -4,7 +4,7 @@ from .pipeline import Pipeline
 from .utils.files import list_files
 
 
-class LoadImages(Pipeline):
+class LoadImage(Pipeline):
     """Pipeline task to capture images from directory."""
 
     def __init__(self, src, valid_exts=(".jpg", ".png"), level=None):
@@ -12,7 +12,7 @@ class LoadImages(Pipeline):
         self.valid_exts = valid_exts
         self.level = level
 
-        super(LoadImages, self).__init__()
+        super(LoadImage, self).__init__()
 
     def generator(self):
         """Yields the image content and metadata."""
