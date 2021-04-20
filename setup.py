@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="dsupipeline",
+    name="dspipeline",
     version="0.0.1",
     author="DF",
     author_email="",
