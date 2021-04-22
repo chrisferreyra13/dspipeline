@@ -16,15 +16,19 @@ class SaveImage(Pipeline):
         super(SaveImage, self).__init__()
 
     def map(self, data):
-        image = data["image"]
 
+        if type(data['image']) is list:
+            for img in data['image']:   
+                self.saveimg(img)
+        else:
+            self.saveimg(data['image'])
+        return data
+
+    def saveimg(self,img):
         os.makedirs(self.path, exist_ok=True)
 
         # Save image
         image_file = os.path.join(
             self.path, f"{SaveImage.counter:05d}.{self.image_ext}")
-        data["image_file"] = image_file
-        cv2.imwrite(image_file, image)
+        cv2.imwrite(image_file, img)
         SaveImage.counter += 1
-
-        return data

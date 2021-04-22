@@ -10,10 +10,10 @@ class CutImage(Pipeline):
         
         image = data["image"]
         # remember that x and y are flipped.
-        bbox = data['coordinates']
-        if type(bbox) is list:
-            bbox = bbox[0]
-        resized_image = image[bbox['p1'][1]:bbox['p2'][1],
+        bboxes = data['coordinates']
+        data["image"] = []
+        for bbox in bboxes:
+            resized_image = image[bbox['p1'][1]:bbox['p2'][1],
                                  bbox['p1'][0]:bbox['p2'][0]]
-        data["image"] = resized_image
+            data["image"].append(resized_image)
         return data
