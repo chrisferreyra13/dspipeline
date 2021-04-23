@@ -45,11 +45,11 @@ def convert_video_to_image(video_folder, video_file):
     "KNN": cv2.createBackgroundSubtractorKNN
         }
 
-    cv2.namedWindow("background",cv2.WINDOW_NORMAL)
-    cv2.resizeWindow("background", ( 640,480 ) )
+    # cv2.namedWindow("background",cv2.WINDOW_NORMAL)
+    # cv2.resizeWindow("background", ( 640,480 ) )
 
-    cv2.namedWindow("foreground",cv2.WINDOW_NORMAL)
-    cv2.resizeWindow("foreground", ( 640,480 ) )
+    # cv2.namedWindow("foreground",cv2.WINDOW_NORMAL)
+    # cv2.resizeWindow("foreground", ( 640,480 ) )
     bgsubstractor=OPENCV_OBJECT_TRACKERS["KNN"]()
     ##------------------
     def RemoveBackGround(bgsubstractor, frame):
@@ -70,6 +70,8 @@ def convert_video_to_image(video_folder, video_file):
     os.mkdir(f'/home/administrator/detectron2/videos_processed/{video_name}')
     no_movement = f'/home/administrator/detectron2/videos_processed/{video_name}/no_movement'
     movement = f'/home/administrator/detectron2/videos_processed/{video_name}/movement'
+    os.mkdir(no_movement)
+    os.mkdir(movement)
     frame_counter=0
     while True:
         ret, frame = cap.read()
